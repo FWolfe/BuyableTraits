@@ -1,0 +1,7 @@
+A mod for Project Zomboid, allowing players to spend skill points on positive traits after 
+character creation, and removal of negative traits.
+
+Traits that are mutually exclusive of a trait the player has already can not be bought (ie:
+a player with Slow Reader must spend points to remove it before he/she can get Fast Reader)
+
+By default, the cost in skill points is x4 what the cost is on the character creation screen.
