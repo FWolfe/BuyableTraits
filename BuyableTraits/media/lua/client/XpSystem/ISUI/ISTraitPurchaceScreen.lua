@@ -196,7 +196,7 @@ function ISTraitPurchaseScreen:createChildren()
 
     self:updateList()
     
-    self.char:setNumberOfPerksToPick(50) -- TODO: remove
+    --self.char:setNumberOfPerksToPick(50) -- TODO: remove, testing line
 end
 
 
