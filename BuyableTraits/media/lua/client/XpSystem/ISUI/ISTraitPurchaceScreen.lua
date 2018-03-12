@@ -311,7 +311,7 @@ function ISTraitPurchaseScreen:updateList()
     self.listboxTrait:clear()
     
     for i=0, playerTraits:size()-1 do
-        print(playerTraits:get(i))
+        --print(playerTraits:get(i))
         local trait = TraitFactory.getTrait(playerTraits:get(i))
         local newItem = self.listboxTraitSelected:addItem(trait:getLabel(), trait)
         newItem.tooltip = trait:getDescription()
