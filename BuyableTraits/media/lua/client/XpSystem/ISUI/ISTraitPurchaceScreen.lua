@@ -119,8 +119,8 @@ function ISCharacterInfoWindow:createChildren()
     self.traitPurchaseView = ISTraitPurchaseScreen:new(0, 8, self.width, self.height-8, self.playerNum)
     self.traitPurchaseView:initialise()
     -- TODO: this needs a translation such as:
-    -- UI_SkillPanel = " <CENTRE> <SIZE:medium> This is the Skill Panel. <LINE> <LINE> <SIZE:small> <LEFT> Every skill that you can learn is shown here. <LINE> <LINE> Learning speed depends on your chosen profession and traits. It can be accelerated by reading Skill Books - which provide an XP multiplier for that particular skill. <LINE> <LINE> XP is gained passively, through repeated actions throughout your survival experience, and improves the quality of your actions. <LINE> <LINE> Gaining skill XP also rewards you with a global XP. It is this that provides points to unlock the next level of each skill, once the previous level has been mastered.",
-    self.traitPurchaseView.infoText = "Traits" --getText("UI_SkillPanel")
+    -- IGUI_PT_SkillPanel = " <CENTRE> <SIZE:medium> This is the Skill Panel. <LINE> <LINE> <SIZE:small> <LEFT> Every skill that you can learn is shown here. <LINE> <LINE> Learning speed depends on your chosen profession and traits. It can be accelerated by reading Skill Books - which provide an XP multiplier for that particular skill. <LINE> <LINE> XP is gained passively, through repeated actions throughout your survival experience, and improves the quality of your actions. <LINE> <LINE> Gaining skill XP also rewards you with a global XP. It is this that provides points to unlock the next level of each skill, once the previous level has been mastered.",
+    self.traitPurchaseView.infoText = getText("IGUI_PT_SkillPanel"); --"Traits"
     self.panel:addView(getText("IGUI_char_Traits"), self.traitPurchaseView) 
 end
 --------------------------------------------------------------------------
@@ -207,7 +207,9 @@ function ISTraitPurchaseScreen:onDblClickSelectedTrait(item)
     if cost > 0 and player:getNumberOfPerksToPick() >= cost then
         -- TODO: add translation
         -- IGUI_BuyableTraits_remove = "Remove %1 for %2 points?"
-        local modal = ISModalDialog:new(48, 48, 250, 150, "Remove ".. item:getLabel() .. " for "..cost.. " points?", true, nil, onRemoveBadTrait, player:getPlayerNum(), item, cost)
+        local modal = ISModalDialog:new(48, 48, 250, 150,
+			getText("IGUI_PT_Remove").. item:getLabel() .. getText("IGUI_PT_for")..cost.. getText("IGUI_PT_points"),
+			true, nil, onRemoveBadTrait, player:getPlayerNum(), item, cost)
         modal:initialise()
         modal:addToUIManager()        
     end
@@ -221,7 +223,9 @@ function ISTraitPurchaseScreen:onDblClickTrait(item)
         -- TODO: add translation
         -- IGUI_BuyableTraits_add = "Add %1 for %2 points?"
         --local modal = ISModalDialog:new(48, 48, 250, 150, getText("IGUI_BuyableTraits_add", item:getLabel(), cost), true, nil, ISTraitPurchaseScreen.onAddGoodTrait, player:getPlayerNum(), item, cost)
-        local modal = ISModalDialog:new(48, 48, 250, 150, "Add ".. item:getLabel() .. " for "..cost.. " points?", true, nil, onAddGoodTrait, player:getPlayerNum(), item, cost)
+        local modal = ISModalDialog:new(48, 48, 250, 150,
+			getText("IGUI_PT_Add").. item:getLabel() .. getText("IGUI_PT_for")..cost.. getText("IGUI_PT_points"),
+			true, nil, onAddGoodTrait, player:getPlayerNum(), item, cost)
         modal:initialise()
         modal:addToUIManager()        
     end
