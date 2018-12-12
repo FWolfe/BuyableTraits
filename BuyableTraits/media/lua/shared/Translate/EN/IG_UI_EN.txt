@@ -1,0 +1,7 @@
+IGUI_EN = {
+	IGUI_PT_Remove = "Remove ",
+	IGUI_PT_for = " for ",
+	IGUI_PT_points = " points?",
+	IGUI_PT_Add = "Add ",
+	IGUI_PT_SkillPanel = "Here you can buy new traits for skill points or get rid of negative traits. The price is 4 times more than the base. For example, Cat's Eyes is worth 8 points, not 2 points.",
+}
